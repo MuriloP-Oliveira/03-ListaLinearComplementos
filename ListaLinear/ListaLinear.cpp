@@ -122,8 +122,35 @@ void inserirElemento()
 
 void excluirElemento()
 {
+	if (nElementos == 0) {
+		cout << "Nenhum Elemento na Lista. " << endl;
+	}
+	else {
+		
+		int valor = 0;
+		int Excluir = 0;
+		cout << "Digite o elemento que apagar: ";
+		cin >> valor;
+		int pos = posicaoElemento(valor);
+		if (pos != -1) {
 
+			for (int n = 0; n <= nElementos; n++) {
+				if (lista[n] == valor) {
+					Excluir = n;
+				}
+			}
 
+			for (int i = Excluir; i <= nElementos; i++) {
+				lista[i] = lista[i + 1];
+			}
+			nElementos--;
+			cout << "O elemento foi excluido" << endl;
+
+		}
+		else {
+			cout << "Esse elemento não existe na lista. " << endl;
+		}
+	}
 }
 
 void buscarElemento()
